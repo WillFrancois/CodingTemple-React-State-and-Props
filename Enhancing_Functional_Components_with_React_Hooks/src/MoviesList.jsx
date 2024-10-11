@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 function MoviesList() {
+  //Task 1
   const [movies, setMovies] = useState([
     {
       title: "The Nightmare Before Christmas",
@@ -38,8 +39,10 @@ function MoviesList() {
     }),
   );
 
+  //Task 4
   const [disneyFilter, setDisneyFilter] = useState(false);
 
+  //Task 2
   function showDetails(movieName) {
     let tempDetails = [];
 
@@ -54,6 +57,7 @@ function MoviesList() {
     setDetailsOut(tempDetails);
   }
 
+  //Task 3
   function removeMovie(movieName) {
     let tempDetails = [];
 
@@ -75,6 +79,7 @@ function MoviesList() {
   return (
     <>
       <label for="filter">Non-disney movies</label>
+      //Task 4
       <input
         id="filter"
         type="checkbox"
@@ -82,11 +87,12 @@ function MoviesList() {
           setDisneyFilter(!disneyFilter);
         }}
       ></input>
-
       <ul>
         {movies.map((item, index) =>
+          //Task 4
           !(disneyFilter && item.disney) ? (
             <li key={index}>
+              //Task 3
               <button
                 onClick={() => {
                   removeMovie(item.title);
@@ -94,6 +100,7 @@ function MoviesList() {
               >
                 Remove Movie
               </button>
+              //Task 2
               <button
                 onClick={() => {
                   showDetails(item.title);
